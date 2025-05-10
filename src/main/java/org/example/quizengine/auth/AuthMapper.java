@@ -11,7 +11,7 @@ public interface AuthMapper {
     UserEntity toEntity(AuthDto.Register registerDto);
 
     default UserEntity toEntity(AuthDto.Register registerDto, PasswordEncoder encoder) {
-        UserEntity entity = toEntity(registerDto);
+        var entity = toEntity(registerDto);
         entity.setPassword(encoder.encode(registerDto.password()));
         return entity;
     }
